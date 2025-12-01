@@ -62,6 +62,7 @@ T[n+1] = 0.9×T[n] - 0.08×PCRAC + 0.05×Qest + 0.02×Text + 3.5
 ##  Autores
 João Gabriel de Carvalho Barbosa
 Guilherme Oliveira e Brito
+Eduardo Augusto Fonseca Rezende
 
 Projeto Final - Embarcados
 Disciplina: C213
