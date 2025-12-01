@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard MQTT - Monitoramento</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📡 Dashboard MQTT - Monitoramento em Tempo Real</h1>
+            <p>Broker: localhost:1883 | Tópicos: datacenter/fuzzy/*</p>
+        </header>
+
+        <nav class="nav-buttons">
+            <button onclick="window.location.href='/'" class="btn btn-secondary">
+                ← Voltar ao Sistema
+            </button>
+        </nav>
+
+        <div class="main-content">
+            <!-- Status da Conexão -->
+            <section class="card">
+                <h2>🔌 Status da Conexão MQTT</h2>
+                <div class="status-container">
+                    <div class="status-indicator" id="mqtt-status">
+                        <span class="status-dot"></span>
+                        <span class="status-text">Verificando...</span>
+                    </div>
+                    <div class="status-info">
+                        <p><strong>Broker:</strong> <span id="broker-info">--</span></p>
+                        <p><strong>Porta:</strong> <span id="port-info">--</span></p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Alertas -->
+            <section class="card">
+                <h2>⚠️ Alertas do Sistema</h2>
+                <div id="alerts-container">
+                    <p class="text-muted">Nenhum alerta recente</p>
+                </div>
+            </section>
+
+            <!-- Últimas Mensagens -->
+            <section class="card">
+                <h2>📨 Últimas Mensagens MQTT (Tempo Real)</h2>
+                <div id="mqtt-messages" class="message-container">
+                    <p class="text-muted">Aguardando mensagens...</p>
+                </div>
+            </section>
+
+            <!-- Estatísticas -->
+            <section class="card">
+                <h2>📊 Estatísticas</h2>
+                <div class="metrics-grid">
+                    <div class="metric">
+                        <div class="metric-value" id="msg-count">0</div>
+                        <div class="metric-label">Mensagens Enviadas</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-value" id="alert-count">0</div>
+                        <div class="metric-label">Alertas Emitidos</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-value" id="uptime">00:00</div>
+                        <div class="metric-label">Tempo Online</div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <footer>
+            <p>Dashboard MQTT - Sistema Fuzzy de Controle | C213 - 2025</p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/mqtt_dashboard.js') }}"></script>
+</body>
+</html>
