@@ -10,20 +10,20 @@
 <body>
     <div class="container">
         <header>
-            <h1>🌡️ Sistema Fuzzy para Controle de Refrigeração</h1>
+            <h1>Sistema Fuzzy para Controle de Refrigeração</h1>
             <p>Data Center - Controle Inteligente de Temperatura</p>
         </header>
 
         <nav class="nav-buttons">
             <button onclick="window.location.href='/mqtt_dashboard'" class="btn btn-secondary">
-                📊 Dashboard MQTT
+                Dashboard MQTT
             </button>
         </nav>
 
         <div class="main-content">
             <!-- Painel de Entradas -->
             <section class="card">
-                <h2>📥 Painel de Entradas</h2>
+                <h2>Painel de Entradas</h2>
                 <div class="input-grid">
                     <div class="input-group">
                         <label for="erro">Erro de Temperatura (°C)</label>
@@ -51,14 +51,14 @@
                 </div>
                 
                 <div class="button-group">
-                    <button onclick="calculate()" class="btn btn-primary">🎯 Calcular Potência CRAC</button>
-                    <button onclick="resetInputs()" class="btn btn-secondary">🔄 Limpar</button>
+                    <button onclick="calculate()" class="btn btn-primary">Calcular Potência CRAC</button>
+                    <button onclick="resetInputs()" class="btn btn-secondary">Limpar</button>
                 </div>
             </section>
 
             <!-- Painel de Saída -->
             <section class="card">
-                <h2>📤 Potência CRAC</h2>
+                <h2>Potência CRAC</h2>
                 <div class="output-display">
                     <div class="output-value" id="output-value">--</div>
                     <div class="output-label">% de Potência</div>
@@ -70,7 +70,7 @@
 
             <!-- Funções de Pertinência -->
             <section class="card">
-                <h2>📊 Funções de Pertinência</h2>
+                <h2>Funções de Pertinência</h2>
                 <div class="tabs">
                     <button class="tab-btn active" onclick="showTab('erro', event)">Erro</button>
                     <button class="tab-btn" onclick="showTab('delta_erro', event)">Δ Erro</button>
@@ -85,7 +85,7 @@
 
             <!-- Simulação 24h -->
             <section class="card">
-                <h2>🕐 Simulação de 24 Horas</h2>
+                <h2>Simulação de 24 Horas</h2>
                 <div class="simulation-controls">
                     <div class="input-group">
                         <label>Temperatura Inicial (°C)</label>
@@ -99,28 +99,24 @@
                         <label>Carga Base (%)</label>
                         <input type="number" id="sim_carga_base" value="40" step="5">
                     </div>
-                    <button onclick="runSimulation()" class="btn btn-primary">▶️ Executar Simulação</button>
+                    <button onclick="runSimulation()" class="btn btn-primary">Executar Simulação</button>
                 </div>
                 
                 <!-- Preview dos gráficos que aparecerão -->
                 <div id="simulation-preview" style="text-align: center; padding: 40px; background: var(--card-bg); border: 2px dashed var(--border); border-radius: 8px; margin-top: 20px;">
-                    <h3 style="color: var(--text-muted); margin-bottom: 15px;">📊 Gráficos da Simulação</h3>
-                    <p style="color: var(--text-muted); margin-bottom: 20px;">Clique em "▶️ Executar Simulação" para visualizar:</p>
+                    <h3 style="color: var(--text-muted); margin-bottom: 15px;">Gráficos da Simulação</h3>
+                    <p style="color: var(--text-muted); margin-bottom: 20px;">Clique em "Executar Simulação" para visualizar:</p>
                     <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; max-width: 600px; margin: 0 auto;">
                         <div style="padding: 15px; background: rgba(59, 130, 246, 0.1); border-radius: 8px; border: 1px solid #3b82f6;">
-                            <div style="font-size: 2em; margin-bottom: 5px;">📊</div>
                             <div style="color: var(--text); font-weight: bold;">Temperatura Atual vs Setpoint</div>
                         </div>
                         <div style="padding: 15px; background: rgba(59, 130, 246, 0.1); border-radius: 8px; border: 1px solid #3b82f6;">
-                            <div style="font-size: 2em; margin-bottom: 5px;">❄️</div>
                             <div style="color: var(--text); font-weight: bold;">Potência de Refrigeração (PCRAC)</div>
                         </div>
                         <div style="padding: 15px; background: rgba(245, 158, 11, 0.1); border-radius: 8px; border: 1px solid #f59e0b;">
-                            <div style="font-size: 2em; margin-bottom: 5px;">📈</div>
                             <div style="color: var(--text); font-weight: bold;">Erro de Temperatura</div>
                         </div>
                         <div style="padding: 15px; background: rgba(139, 92, 246, 0.1); border-radius: 8px; border: 1px solid #8b5cf6;">
-                            <div style="font-size: 2em; margin-bottom: 5px;">🌡️</div>
                             <div style="color: var(--text); font-weight: bold;">Temperatura de Saída</div>
                         </div>
                     </div>
@@ -150,28 +146,28 @@
                     <!-- Gráficos da Simulação -->
                     <div class="simulation-charts-grid">
                         <div class="chart-box">
-                            <h3>📊 Temperatura Atual vs Setpoint</h3>
+                            <h3>Temperatura Atual vs Setpoint</h3>
                             <div class="chart-container" style="height: 250px;">
                                 <canvas id="tempComparisonChart"></canvas>
                             </div>
                         </div>
                         
                         <div class="chart-box">
-                            <h3>❄️ Potência de Refrigeração (PCRAC)</h3>
+                            <h3>Potência de Refrigeração (PCRAC)</h3>
                             <div class="chart-container" style="height: 250px;">
                                 <canvas id="powerChart"></canvas>
                             </div>
                         </div>
                         
                         <div class="chart-box">
-                            <h3>📈 Erro de Temperatura (T_atual - Setpoint)</h3>
+                            <h3>Erro de Temperatura (T_atual - Setpoint)</h3>
                             <div class="chart-container" style="height: 250px;">
                                 <canvas id="errorChart"></canvas>
                             </div>
                         </div>
                         
                         <div class="chart-box">
-                            <h3>🌡️ Temperatura de Saída ao Longo do Tempo</h3>
+                            <h3>Temperatura de Saída ao Longo do Tempo</h3>
                             <div class="chart-container" style="height: 250px;">
                                 <canvas id="tempOutputChart"></canvas>
                             </div>
@@ -186,7 +182,7 @@
         </footer>
     </div>
 
-    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
     <script src="{{ url_for('static', filename='js/charts.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
 </body>
 </html>

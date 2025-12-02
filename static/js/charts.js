@@ -15,23 +15,35 @@ function plotMembershipFunction(variable) {
     const data = membershipData[variable];
     const datasets = [];
     
+    // Define a ordem correta dos termos para cada variável
+    const termOrder = {
+        'erro': ['NB', 'NM', 'NS', 'ZE', 'PS', 'PM', 'PB'],
+        'delta_erro': ['NB', 'NM', 'NS', 'ZE', 'PS', 'PM', 'PB'],
+        'temp_externa': ['Baixa', 'Media', 'Alta'],
+        'carga_termica': ['Baixa', 'Media', 'Alta'],
+        'potencia_crac': ['MB', 'B', 'M', 'A', 'MA']
+    };
+    
     const colors = [
         '#ef4444', '#f59e0b', '#10b981', '#3b82f6', '#8b5cf6', '#ec4899', '#6366f1'
     ];
     
-    let colorIndex = 0;
-    for (let term in data.terms) {
-        datasets.push({
-            label: term,
-            data: data.terms[term],
-            borderColor: colors[colorIndex % colors.length],
-            backgroundColor: colors[colorIndex % colors.length] + '20',
-            borderWidth: 2,
-            fill: true,
-            tension: 0.4
-        });
-        colorIndex++;
-    }
+    // Usa a ordem definida para plotar
+    const terms = termOrder[variable] || Object.keys(data.terms);
+    
+    terms.forEach((term, index) => {
+        if (data.terms[term]) {
+            datasets.push({
+                label: term,
+                data: data.terms[term],
+                borderColor: colors[index % colors.length],
+                backgroundColor: colors[index % colors.length] + '20',
+                borderWidth: 2,
+                fill: true,
+                tension: 0.4
+            });
+        }
+    });
     
     if (membershipChart) {
         membershipChart.destroy();

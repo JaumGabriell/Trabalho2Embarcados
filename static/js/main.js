@@ -149,7 +149,7 @@ async function runSimulation() {
     document.getElementById('simulation-results').innerHTML = `
         <div style="text-align: center; padding: 40px;">
             <div class="loading"></div>
-            <h3 style="margin-top: 20px; color: #2196F3;">⏳ Iniciando simulação de 24 horas...</h3>
+            <h3 style="margin-top: 20px; color: #2196F3;">Iniciando simulação de 24 horas...</h3>
             <p style="color: #666;">Os dados estão sendo enviados via MQTT</p>
             <div class="metric" style="margin-top: 20px;">
                 <div class="metric-value" id="simulation-progress">0%</div>
@@ -188,7 +188,7 @@ async function runSimulation() {
         } else {
             document.getElementById('simulation-results').innerHTML = `
                 <div style="text-align: center; padding: 40px; color: #f44336;">
-                    <h3>❌ Erro ao iniciar simulação</h3>
+                    <h3>Erro ao iniciar simulação</h3>
                     <p>${result.error}</p>
                 </div>
             `;
@@ -197,7 +197,7 @@ async function runSimulation() {
         console.error('Erro:', error);
         document.getElementById('simulation-results').innerHTML = `
             <div style="text-align: center; padding: 40px; color: #f44336;">
-                <h3>❌ Erro ao executar simulação</h3>
+                <h3>Erro ao executar simulação</h3>
                 <p>Verifique o console do navegador (F12) para mais detalhes.</p>
                 <p style="font-size: 0.9em; color: #666;">Erro: ${error.message}</p>
             </div>
@@ -250,7 +250,7 @@ async function startSimulationPolling() {
                 
                 document.getElementById('simulation-results').innerHTML = `
                     <div style="text-align: center; padding: 40px; color: #f44336;">
-                        <h3>❌ Erro na simulação</h3>
+                        <h3>Erro na simulação</h3>
                         <p>${status.data.error}</p>
                     </div>
                 `;
@@ -286,28 +286,28 @@ function displaySimulationResults(results, metrics) {
         
         <div class="simulation-charts-grid">
             <div class="chart-box">
-                <h3>📊 Temperatura Atual vs Setpoint</h3>
+                <h3>Temperatura Atual vs Setpoint</h3>
                 <div class="chart-container" style="height: 250px;">
                     <canvas id="tempComparisonChart"></canvas>
                 </div>
             </div>
             
             <div class="chart-box">
-                <h3>❄️ Potência de Refrigeração (PCRAC)</h3>
+                <h3>Potência de Refrigeração (PCRAC)</h3>
                 <div class="chart-container" style="height: 250px;">
                     <canvas id="powerChart"></canvas>
                 </div>
             </div>
             
             <div class="chart-box">
-                <h3>📈 Erro de Temperatura (T_atual - Setpoint)</h3>
+                <h3>Erro de Temperatura (T_atual - Setpoint)</h3>
                 <div class="chart-container" style="height: 250px;">
                     <canvas id="errorChart"></canvas>
                 </div>
             </div>
             
             <div class="chart-box">
-                <h3>🌡️ Temperatura de Saída ao Longo do Tempo</h3>
+                <h3>Temperatura de Saída ao Longo do Tempo</h3>
                 <div class="chart-container" style="height: 250px;">
                     <canvas id="tempOutputChart"></canvas>
                 </div>
